@@ -1,0 +1,22 @@
+{
+  "entry_script": "start",
+  "entry_file": "pages/index.js",
+  "scripts": {
+    "start": "next dev -p 3450"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "next": "9.3.5",
+    "prop-types": "^15.8.1",
+    "qrcode-react": "^0.1.16",
+    "react": "^18.x.x",
+    "react-bootstrap": "^2.7.2",
+    "react-dom": "^18.x.x",
+    "react-responsive-carousel": "^3.2.23",
+    "styled-components": "^5.3.6",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^2.0.7"
+  }
+}
