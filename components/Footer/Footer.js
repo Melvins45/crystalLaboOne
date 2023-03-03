@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
+import {footer_pages} from '../../utils/pages'
 
 export const FooterBig = styled.footer`
   width: 1200px;
@@ -99,6 +100,9 @@ export const FooterCopyright = styled.div`
   }
 `
 
+const footerBigPages = footer_pages
+  .filter( page => page.sub == 0 )
+
 export default function Footer(){
   const [topSommary,setTopSommary] = useState(0)
   const [subInput, setSubInput] = useState("")
@@ -120,36 +124,28 @@ export default function Footer(){
     <FooterBig>
       <FooterPages>
         <FooterAllPages>
-          <FooterLotPage>
-            <h3> Nos specialités </h3>
-            <ul>
-              <FooterPage>
-                <Link href='#' >
-                  Paristologie
-                </Link>
-              </FooterPage>
-            </ul>
-          </FooterLotPage>
-          <FooterLotPage>
-            <h3> Nos specialités </h3>
-            <ul>
-              <FooterPage>
-                <Link href='#'>
-                  Paristologie
-                </Link>
-              </FooterPage>
-            </ul>
-          </FooterLotPage>
-          <FooterLotPage>
-            <h3> Nos specialités </h3>
-            <ul>
-              <FooterPage>
-                <Link href='#'>
-                  Paristologie
-                </Link>
-              </FooterPage>
-            </ul>
-          </FooterLotPage>
+          {
+            footerBigPages.map( (page, index) => (
+              <FooterLotPage key={page.name+'-'+index}>
+                <h3> {page.title} </h3>
+                <ul>
+                  {
+                    footer_pages
+                    .filter( subPage => (subPage.sub === 1 && subPage.parent === page.name ) )
+                    .map( (subPage, index) => {
+                      return (
+                        <FooterPage key={subPage.name+'-'+index} >
+                          <Link href='#' >
+                            {subPage.title}
+                          </Link>
+                        </FooterPage>
+                      )
+                    } )
+                  }
+                </ul>
+              </FooterLotPage>
+            ) )
+          }
         </FooterAllPages>
         <FooterLast>
           <FooterLastImg src="/crystallabo-logo.png" alt='logo' />

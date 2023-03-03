@@ -66,11 +66,11 @@ export default function Sommary({content}){
   
   useEffect( () => {
     const eltTop = (id) => {
-      console.log('id to get top is '+id)
+      //console.log('id to get top is '+id)
     return document.querySelector('#'+id).getBoundingClientRect().top}
     
     
-    window.addEventListener( 'scroll', function(e){
+    /*window.addEventListener( 'scroll', function(e){
       let hadSetAnActive = false
       articleBreakpoints.slice(0).reverse().map( (article) => {
         if( !hadSetAnActive && window.innerHeight >= eltTop(article) ){
@@ -88,7 +88,7 @@ export default function Sommary({content}){
           hadSetAnActive = true
         }
       })
-    })
+    })*/
   })
   
   return (
@@ -98,7 +98,7 @@ export default function Sommary({content}){
         content.articleBreakPoints.map( (article, index) => 
         article.sub === 0 &&
         (<li key={article.name+'-'+index} active={ activeSommaryLink[article.name] ? 'active' : ''  }>
-          <Link href="#${article.name}">
+          <Link href={'#'+article.name}>
             {article.title} 
           </Link>
           <ul>
@@ -107,7 +107,7 @@ export default function Sommary({content}){
               .filter(subArticle => (subArticle.sub === 1 &&subArticle.parent === article.name) )
               .map( subArticle => (
                 <li key={subArticle.name+'-'+index} under={1} active={subActiveSommaryLink[subArticle.name] ? 'active' : ''} >
-                  <Link href='#${subArticle.name}'>
+                  <Link href={'#'+subArticle.name}>
                     {subArticle.title}
                   </Link>
                 </li>

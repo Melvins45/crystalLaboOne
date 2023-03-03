@@ -5,6 +5,7 @@ import Dropdown from '../Dropdown/Dropdown'
 //import logo from '../../assets/crystallabo-logo.png'
 import colors from '../../utils/styles/colors'
 import ProgressBar from '../Progressbar/Progressbar'
+import {header_pages} from '../../utils/pages'
 
 const HeaderDiv = styled.div`
   position: sticky;
@@ -44,6 +45,15 @@ const NavLi = styled.li`
 const Dropdowns = styled.ul`
     color: blue;
   `
+  
+const DropSeparator = styled.hr`
+    width: 100%;
+    margin: 2px;
+    color: ${colors.black};
+`
+  
+const headerBigPages = header_pages
+  .filter( page => page.sub == 0 )
 
 export default function Header() {
   
@@ -82,36 +92,40 @@ export default function Header() {
         <NavUl type={'none'} 
         onMouseLeave={()=> desactiveDrop()}
         >
-          <NavLi id='nav-li-1' >
-            <span
-            onClick={(e) => {e.stopPropagation(); activeDrop(1)} } 
-            onMouseOver={(e) => {e.stopPropagation(); changeDrop(1)}}
-            >
-              Nos specialités
-            </span>
-            <Dropdown parent={1} shown={drop} >
-              <li>
-                <Link href='#' >
-                  Parisotologie
-                </Link>
-              </li>
-            </Dropdown>
-          </NavLi>
-          <NavLi id='nav-li-2'>
-            <span 
-            onClick={(e) => {e.stopPropagation(); activeDrop(2)}}
-            onMouseOver={(e) => {e.stopPropagation(); changeDrop(2)}}
-          >
-              Nos services
-            </span>
-            <Dropdown parent={2} shown={drop}>
-              <li>
-                <Link href='#' >
-                  Parisotologie
-                </Link>
-              </li>
-            </Dropdown>
-          </NavLi>
+          {
+            headerBigPages.map( (page, index) => (
+              <NavLi key={page.name+'-'+index} id={'nav-li-'+index}>
+                <span
+                  onClick={(e) => {e.stopPropagation(); activeDrop(index)} }
+                  onMouseOver={(e) => {e.stopPropagation(); changeDrop(index)}}
+                >
+                  {page.title}
+                </span>
+                <ul parent={index} shown={drop} >
+                {
+                  header_pages
+                  .filter( subPage => (subPage.sub === 1 && subPage.parent === page.name ) )
+                  .map( (subPage, index) => { console.log('subPage of page ',page.name,' is ', subPage); return 
+                    /*subPage.separate ?
+                      (<div key={subPage.name+'-'+index}>
+                        <DropSeparator/>
+                        <li>
+                          <Link href='#'>
+                            {subPage.name}
+                          </Link>
+                        </li>
+                      </div> ):*/
+                      (<li key={subPage.name+'-'+index} >
+                        <Link href='#'>
+                          {subPage.name}
+                        </Link>
+                      </li>)
+                  } )
+                }
+                </ul>
+              </NavLi>
+            ))
+          }
         </NavUl>
       </Nav>
       <ProgressBar/>

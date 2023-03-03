@@ -2,6 +2,109 @@ animation: ${css`${translateTo(shown.prev)}`} 200ms linear;
 animation: ${appear} 200ms linear;
 transform: translateX(${(props) => eltHeight(shown.prev)});
 
+
+          <NavLi id='nav-li-1' >
+            <span
+            onClick={(e) => {e.stopPropagation(); activeDrop(1)} } 
+            onMouseOver={(e) => {e.stopPropagation(); changeDrop(1)}}
+            >
+              Nos specialités
+            </span>
+            <Dropdown parent={1} shown={drop} >
+              <li>
+                <Link href='#' >
+                  Parisotologie
+                </Link>
+              </li>
+            </Dropdown>
+          </NavLi>
+          <NavLi id='nav-li-2'>
+            <span 
+            onClick={(e) => {e.stopPropagation(); activeDrop(2)}}
+            onMouseOver={(e) => {e.stopPropagation(); changeDrop(2)}}
+          >
+              Nos services
+            </span>
+            <Dropdown parent={2} shown={drop}>
+              <li>
+                <Link href='#' >
+                  Parisotologie
+                </Link>
+              </li>
+            </Dropdown>
+          </NavLi>
+          
+          
+          
+          <FooterLotPage>
+            <h3> Nos specialités </h3>
+            <ul>
+              <FooterPage>
+                <Link href='#' >
+                  Paristologie
+                </Link>
+              </FooterPage>
+            </ul>
+          </FooterLotPage>
+          <FooterLotPage>
+            <h3> Nos specialités </h3>
+            <ul>
+              <FooterPage>
+                <Link href='#'>
+                  Paristologie
+                </Link>
+              </FooterPage>
+            </ul>
+          </FooterLotPage>
+          <FooterLotPage>
+            <h3> Nos specialités </h3>
+            <ul>
+              <FooterPage>
+                <Link href='#'>
+                  Paristologie
+                </Link>
+              </FooterPage>
+            </ul>
+          </FooterLotPage>
+
+<Carousel activeIndex={index} onSelect={handleSelect}>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="/crystallabo-logo.png"
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h3>First slide label</h3>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="/crystallabo-logo.png"
+                alt="Second slide"
+              />
+              <Carousel.Caption>
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="/crystallabo-logo.png"
+                alt="Third slide"
+              />
+              <Carousel.Caption>
+                <h3>Third slide label</h3>
+                <p>
+                  Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+
 {
             content.articleBreakPoints.map( (article, index) => {
               //console.log(article.name,' refers to ',article.title)

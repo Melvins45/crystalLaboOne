@@ -3,13 +3,13 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
-import { ArticleMenu,ArticleSection, ArticleContent, ArticleSommary, ArticlePub} from '../components/Main/Article'
-import Sommary from '../components/Sommary/Sommary'
+import { ArticleMenu,ArticleSection, ArticleContent, ArticleSommary, ArticlePub} from '../Main/Article'
+import Sommary from '../Sommary/Sommary'
 //import { Carousel } from 'react-responsive-carousel'
 import Carousel from 'react-bootstrap/Carousel'
-import content from '../utils/content/template-content'
 
-export default function Home() {
+
+export default function Template({content}) {
   
   const [top,setTop] = useState({})
   
