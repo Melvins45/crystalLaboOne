@@ -66,8 +66,8 @@ import colors from '../../utils/styles/colors'
   
   export const ArticlePub = 
   styled.div`
-    position: sticky;
-    top: ${ ({top}) => top }px;
+    /*position: sticky;
+    top: ${ ({top}) => top }px;*/
     text-align: center;
     margin-top: 30em;
   `
