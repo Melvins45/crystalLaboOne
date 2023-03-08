@@ -42,7 +42,7 @@ export default function Template({active, content}) {
   return (
     <div className="container">
       <Head>
-        <title>{content.title} - Crystal Labo </title>
+        <title>{content.title+' - Crystal Labo'}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ArticleSection>

@@ -75,5 +75,5 @@ export default function Home() {
   var path = require('path');
   var scriptName = path.basename(__filename, path.extname(__filename))
   //console.log(scriptName)
-  return (<Template content={content}/>)
+  return (<Template active={{page: 'home'}} content={content}/>)
 }
