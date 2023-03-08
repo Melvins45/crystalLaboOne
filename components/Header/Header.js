@@ -149,7 +149,7 @@ const BurgerMenu = styled.div`
     //height: auto;
     overflow-x: hidden;
     overflow-y: auto;
-    background: ${colors.backgroundLight};
+    background: ${colors.white};
     position: absolute;
     padding-top: 0.4rem; 
     padding-left: 0.4rem;
@@ -266,8 +266,8 @@ export default function Header() {
           {
             headerBigPages.map( (page, index) => (
               <NavLi 
-              active={ activePage.page && ( activePage.page === 'rdv' ? 
-              false
+              active={ activePage && ( (activePage.subPage && activePage.subPage === 'rdv' ) ?
+              page.name.includes('rdv')
                : activePage.page === page.name ? true : false ) } 
                key={page.name+'-'+index} id={'nav-li-'+index}>
                 <span
@@ -296,7 +296,7 @@ export default function Header() {
                       </DropSeparatorDiv>
                       <Link href={'/'+subPage.parent+subPage.slug} >
                         <a><li className={ activePage.subPage && ( activePage.subPage === 'rdv' ? 
-              ''
+              subPage.name.includes('rdv') ? 'active' : ''
                : activePage.subPage === subPage.name ? 'active' : '' ) } >
                           {subPage.title}
                         </li></a>
@@ -304,7 +304,7 @@ export default function Header() {
                     </div> ) :
                     (<Link key={subPage.name+'-'+index} href={'/'+subPage.parent+subPage.slug}>
                       <a><li className={ activePage.subPage && ( activePage.subPage === 'rdv' ? 
-              ''
+              subPage.name.includes('rdv') ? 'active' : ''
                : activePage.subPage === subPage.name ? 'active' : '' ) } >
                         {subPage.title}
                       </li></a>
@@ -350,7 +350,11 @@ export default function Header() {
         >
           {
             headerBigPages.map( (page, index) => (
-              <NavLi key={page.name+'-'+index} id={'nav-li-'+index}>
+              <NavLi 
+              active={ activePage.page && ( ( activePage.subPage && activePage.subPage === 'rdv') ? 
+              page.name.includes('rdv_online')
+               : activePage.page === page.name ? true : false ) } 
+              key={page.name+'-'+index} id={'nav-li-'+index}>
                 <span
                   onClick={(e) => {e.stopPropagation(); activeDrop(index)} }
                   onMouseOver={(e) => {e.stopPropagation(); changeDrop(index)}}
@@ -369,13 +373,17 @@ export default function Header() {
                     (<>
                       <DropSeparator key={'hr'+subPage.name+'-'+index} />
                       <Link key={subPage.name+'-'+index} href={'/'+subPage.parent+subPage.slug} >
-                        <a><li>
+                        <a><li className={ activePage.subPage && ( activePage.subPage === 'rdv' ? 
+              subPage.name.includes('rdv') ? 'active' : ''
+               : activePage.subPage === subPage.name ? 'active' : '' ) } >
                           {subPage.title}
                         </li></a>
                       </Link>
                     </> ):
                     (<Link key={subPage.name+'-'+index} href={'/'+subPage.parent+subPage.slug}>
-                      <a><li>
+                      <a><li className={ activePage.subPage && ( activePage.subPage === 'rdv' ? 
+              subPage.name.includes('rdv') ? 'active' : ''
+               : activePage.subPage === subPage.name ? 'active' : '' ) } >
                         {subPage.title}
                       </li></a>
                     </Link>)
