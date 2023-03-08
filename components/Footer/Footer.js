@@ -146,6 +146,9 @@ export const FooterCopyright = styled.div`
   & a:active{
     text-decoration: none;
   }
+  @media ${devices.tablet}{
+    padding-bottom: 8px;
+  }
 `
 
 const footerBigPages = footer_pages

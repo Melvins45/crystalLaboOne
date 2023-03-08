@@ -279,9 +279,9 @@ export default function Header() {
                     }
                   }     
                 >
-                  <Link href={!pagesWithSubPages.includes(page.name) ? page.slug : "#" }>
-                    {page.title}
-                  </Link> 
+                  { pagesWithSubPages.includes(page.name) ? 
+                  page.title : 
+                  <Link href={page.slug}>{page.title}</Link> }
                 </span>
                 { pagesWithSubPages.includes(page.name) &&
                 (<Dropdown first={isFirstTimeDropped} windowWidth={windowWidth} parent={page.name} shown={mobileDrop} >
@@ -359,9 +359,9 @@ export default function Header() {
                   onClick={(e) => {e.stopPropagation(); activeDrop(index)} }
                   onMouseOver={(e) => {e.stopPropagation(); changeDrop(index)}}
                 >
-                  <Link href={!pagesWithSubPages.includes(page.name) ? page.slug : "#" }>
-                    {page.title}
-                  </Link> 
+                  { pagesWithSubPages.includes(page.name) ? 
+                  page.title : 
+                  <Link href={page.slug}>{page.title}</Link> }
                 </span>
                 { pagesWithSubPages.includes(page.name) &&
                 (<Dropdown windowWidth={windowWidth} parent={index} shown={drop} >

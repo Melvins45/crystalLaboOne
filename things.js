@@ -6,6 +6,12 @@ transform: translateX(${(props) => eltHeight(shown.prev)});
 
 
 
+
+                  <Link href={!pagesWithSubPages.includes(page.name) ? page.slug : "#" }>
+                    {page.title}
+                  </Link> 
+
+
   &::before{
     content:'';
     top: 0;
