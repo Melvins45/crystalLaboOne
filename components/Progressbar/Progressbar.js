@@ -29,7 +29,7 @@ const ProgressDiv = styled.div`
     z-index: -996;
     //background: red;
     height: 8px;
-    // display: none;
+    display: none;
     &::before{
       position: relative;
       bottom: 0;
