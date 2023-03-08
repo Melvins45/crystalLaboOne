@@ -147,7 +147,7 @@ export const FooterCopyright = styled.div`
     text-decoration: none;
   }
   @media ${devices.tablet}{
-    padding-bottom: 8px;
+    margin-bottom: 8px;
   }
 `
 
