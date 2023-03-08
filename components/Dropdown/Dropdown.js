@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import colors from '../../utils/styles/colors'
+import devices from '../../utils/viewport breakpoints/viewportBreakpoints'
 
 const appear = keyframes`
   from {
@@ -10,6 +11,27 @@ const appear = keyframes`
   to {
     transform: translateY(5px);
     opacity: 1;
+  }
+`
+const appearInMobile = keyframes`
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+`
+
+const disappearInMobile = keyframes`
+  from {
+    //display: flex;
+    position: relative;
+    transform: scaleY(1);
+  }
+  to {
+    //display: none;
+    position: absolute;
+    transform: scaleY(0);
   }
 `
 const noAnimation = keyframes`
@@ -41,21 +63,28 @@ const translateTo = (prev, actual, setMoving) => {
   
   return keyframes`
   from {
+    //display: flex;
     transform: translateX(0);
   }
   to {
+    //display: none;
     transform: translateX(${
       factorTranslate(prev, actual)+'px'});
   }
 `
 }
 const DropStyle =`
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    //align-items: center;
     list-style: none;
     padding-left: 0;
     background: white;
     z-index: 999;
     position: absolute;
+    width: auto;
+    min-width: 10rem;
     border: 1px solid black;
     border-radius: 5px;
     padding-top: 5px;
@@ -66,11 +95,23 @@ const DropStyle =`
       padding: 10px;
     }
     & li:hover {
-      color: white;
-      background: ${colors.primary};
+      color: ${colors.primary};
+      text-decoration: ${colors.primary} underline;
     }
     & li:active {
-      transform: scale(0,7);
+      //transform: scale(0,7);
+    }
+    @media ${devices.tablet}{
+      position: relative;
+      width: auto;
+      //margin-top: 1rem;
+      border: none;
+      background: inherit;
+      //z-index: 0;
+      & li:hover {
+        color: ${colors.primary};
+        text-decoration: ${colors.primary} underline;
+      }
     }
 `
 const DropFirst = styled.ul`
@@ -79,6 +120,31 @@ const DropFirst = styled.ul`
       css`animation: ${appear} 200ms linear;` : 
       css``
     } 
+    @media ${devices.tablet}{
+      transform-origin: top left;
+      /*display: 
+      ${ ({ended, first, shown}) => 
+      !first ? 
+      shown ? 'flex'
+      : !ended ? 'none' : 'flex' 
+      : 'none' };*/
+      ${({first, shown}) => !first ?  
+        shown ? 
+      css`
+      display: flex;
+      position: relative;
+      transform: scaleY(1);
+      animation: ${appearInMobile} 200ms linear;` : 
+      css`
+      display: flex;
+      position: absolute;
+      transform: scaleY(0);
+      animation: ${disappearInMobile} 200ms linear;` :
+      css`
+      display: none;
+      `
+      } 
+    }
 `
 const DropAfter = styled.ul`
     ${DropStyle}
@@ -108,9 +174,21 @@ const Dropdowny = ({parent, shown, children}) => (
     : <DropNull/>
 )
 
-export default function Dropdown({parent, shown, children}) {
-  return (<Dropdowny shown={shown} parent={parent}>
+const MobileDropdown = ({ended, first, parent, shown, children}) => (
+    
+    <DropFirst ended={ended} first={first} shown={shown[parent]} canAnimate={shown.prev === 0} > {children} </DropFirst>
+)
+
+export default function Dropdown({first, windowWidth, parent, shown, children}) {
+  const[ended, setEnded] = useState(false)
+  if ( windowWidth > 768 )
+    return (<Dropdowny shown={shown} parent={parent}>
       {children}
     </Dropdowny>
+  )
+  else
+    return (<MobileDropdown onAnimationEnd={ () => { console.log("the  anim ends");shown[parent] ? setEnded(false) : setEnded(true) } } ended={ended} first={first} shown={shown} parent={parent}>
+      {children}
+    </MobileDropdown>
   )
 }

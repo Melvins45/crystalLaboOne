@@ -1,6 +1,6 @@
-const rdv = 'rdv'
-const results = 'results'
-const innov = 'innovation_of_crystal_labo'
+const rdv = '/rdv'
+const results = '/results'
+const innov = '/innovation_of_crystal_labo'
 
 export const header_pages = [
   {
@@ -8,7 +8,7 @@ export const header_pages = [
     title: 'Nos spécialités',
     sub: 0,
     separate: false,
-    slug: ''
+    slug: '/'
   },
   {
     name: 'parisitology',
@@ -16,7 +16,7 @@ export const header_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'parisotology'
+    slug: '/parisotology'
   },
   {
     name: 'bacteriology',
@@ -24,7 +24,7 @@ export const header_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'bacteriology'
+    slug: '/bacteriology'
   },
   {
     name: 'biochemistry',
@@ -32,7 +32,7 @@ export const header_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'biochemistry'
+    slug: '/biochemistry'
   },
   {
     name: 'immuno-serology',
@@ -40,7 +40,7 @@ export const header_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'immuno-serology'
+    slug: '/immuno-serology'
   },
   {
     name: 'virology',
@@ -48,7 +48,7 @@ export const header_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'virology'
+    slug: '/virology'
   },
   {
     name: 'toxicology',
@@ -56,7 +56,7 @@ export const header_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'toxicology'
+    slug: '/toxicology'
   },
   {
     name: 'anatomopathology',
@@ -64,7 +64,7 @@ export const header_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'anatomopathology'
+    slug: '/anatomopathology'
   },
   {
     name: 'medical_imaging',
@@ -72,14 +72,14 @@ export const header_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'medical_imaging'
+    slug: '/medical_imaging'
   },
   {
     name: 'know_us',
     title: 'Nous connaître',
     sub: 0,
     separate: false,
-    slug: ''
+    slug: '/'
   },
   {
     name: 'who_are_us',
@@ -87,7 +87,7 @@ export const header_pages = [
     sub: 1,
     separate: false,
     parent: 'know_us',
-    slug: 'who_are_us'
+    slug: '/who_are_us'
   },
   {
     name: 'innovation_crystal_labo',
@@ -103,7 +103,7 @@ export const header_pages = [
     sub: 1,
     separate: false,
     parent: 'know_us',
-    slug: 'quality_engagement'
+    slug: '/quality_engagement'
   },
   {
     name: 'join_us',
@@ -111,14 +111,14 @@ export const header_pages = [
     sub: 1,
     separate: true,
     parent: 'know_us',
-    slug: 'join_us'
+    slug: '/join_us'
   },
   {
     name: 'services',
     title: 'Nos services',
     sub: 0,
     separate: false,
-    slug: ''
+    slug: '/'
   },
   {
     name: 'rdv_online',
@@ -129,7 +129,7 @@ export const header_pages = [
     slug: rdv
   },
   {
-    name: 'results_online',
+    name: 'results',
     title: "Vos résultats d'examen en ligne",
     sub: 1,
     separate: false,
@@ -138,25 +138,25 @@ export const header_pages = [
   },
   {
     name: 'my_labo',
-    title: "Mon laboratoire 24h/24 - 7j/7",
+    title: "Mon laboratoire 24h24 - 7j7",
     sub: 1,
     separate: false,
     parent: 'services',
-    slug: 'my_labo'
+    slug: '/my_labo'
   },
   {
     name: 'take_rdv',
     title: 'Prendre un rendez-vous',
     sub: 0,
     separate: false,
-    slug: rdv
+    slug: '/services'+rdv
   },
   {
     name: 'contact_us',
     title: 'Nous contacter',
     sub: 0,
     separate: false,
-    slug: ''
+    slug: '/'
   }
 ]
 
@@ -166,7 +166,7 @@ export const footer_pages = [
     title: 'Nos spécialités',
     sub: 0,
     separate: false,
-    slug: ''
+    slug: '/'
   },
   {
     name: 'parisitology',
@@ -174,7 +174,7 @@ export const footer_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'parisotology'
+    slug: '/parisotology'
   },
   {
     name: 'bacteriology',
@@ -182,7 +182,7 @@ export const footer_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'bacteriology'
+    slug: '/bacteriology'
   },
   {
     name: 'biochemistry',
@@ -190,7 +190,7 @@ export const footer_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'biochemistry'
+    slug: '/biochemistry'
   },
   {
     name: 'immuno-serology',
@@ -198,7 +198,7 @@ export const footer_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'immuno-serology'
+    slug: '/immuno-serology'
   },
   {
     name: 'virology',
@@ -206,7 +206,7 @@ export const footer_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'virology'
+    slug: '/virology'
   },
   {
     name: 'toxicology',
@@ -214,7 +214,7 @@ export const footer_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'toxicology'
+    slug: '/toxicology'
   },
   {
     name: 'anatomopathology',
@@ -222,7 +222,7 @@ export const footer_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'anatomopathology'
+    slug: '/anatomopathology'
   },
   {
     name: 'medical_imaging',
@@ -230,14 +230,14 @@ export const footer_pages = [
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: 'medical_imaging'
+    slug: '/medical_imaging'
   },
   {
     name: 'services',
     title: 'Nos services',
     sub: 0,
     separate: false,
-    slug: ''
+    slug: '/'
   },
   {
     name: 'rdv_online',
@@ -257,14 +257,14 @@ export const footer_pages = [
   },
   {
     name: 'urgences',
-    title: 'Urgences 24h/24',
+    title: 'Urgences 24h24',
     sub: 1,
     separate: false,
     parent: 'services',
-    slug: 'urgences'
+    slug: '/urgences'
   },
   {
-    name: 'results_online',
+    name: 'results',
     title: 'Résultats en ligne',
     sub: 1,
     separate: false,
@@ -277,14 +277,14 @@ export const footer_pages = [
     sub: 1,
     separate: false,
     parent: 'services',
-    slug: 'my_labo'
+    slug: '/my_labo'
   },
   {
     name: 'faq',
     title: 'FAQ',
     sub: 0,
     separate: false,
-    slug: ''
+    slug: '/'
   },
   {
     name: 'before_exam',
@@ -331,7 +331,7 @@ export const footer_pages = [
     title: "À propos de nous",
     sub: 0,
     separate: false,
-    slug: ''
+    slug: '/'
   },
   {
     name: 'who_are_us',
@@ -339,7 +339,7 @@ export const footer_pages = [
     sub: 1,
     separate: false,
     parent: 'know_us',
-    slug: 'who_are_us'
+    slug: '/who_are_us'
   },
   {
     name: 'innovation_crystal_labo',
@@ -355,6 +355,6 @@ export const footer_pages = [
     sub: 1,
     separate: false,
     parent: 'know_us',
-    slug: 'quality_engagement'
+    slug: '/quality_engagement'
   }
 ]

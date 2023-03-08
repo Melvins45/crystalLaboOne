@@ -63,6 +63,18 @@ export default function Sommary({content}){
   
   const [activeSommaryLink, setActiveSommaryLink] = useReducer(reducerActiveSommary, initialBreaks)
   const [subActiveSommaryLink, setSubActiveSommaryLink] = useReducer(reducerSubActiveSommary, initialSubBreaks)
+  const [topSommary, setTopSommary] = useState(0)
+  const [topPub, setTopPub] = useState(0)
+  
+  useEffect( () => {
+    const eltTop = (id) => {
+    return document.querySelector('#'+id).getBoundingClientRect().top}
+    const eltHeight = (id) => {
+      return document.querySelector('#'+id).getBoundingClientRect().bottom}
+    setTopPub(eltHeight("articlePub")-150)
+    setTopSommary(eltTop("sommary")+15)
+    console.log('In effect top sommary is at', topSommary)
+  } ,[])
   
   useEffect( () => {
     const eltTop = (id) => {
@@ -91,8 +103,11 @@ export default function Sommary({content}){
     })*/
   })
   
+  console.log('Out of effect in Sommary top sommary is at', topSommary)
+  console.log('Out of effect in Sommary top pub is at', topPub)
+  
   return (
-    <ArticleSommary id="sommary" top={136} >
+    <ArticleSommary id="sommary" top={topSommary} topPub={topPub} >
       <h3> Sommaire </h3>
       {
         content.articleBreakPoints.map( (article, index) => 

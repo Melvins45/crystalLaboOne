@@ -1,12 +1,15 @@
 import {useEffect} from'react'
 import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
+import devices from '../../utils/viewport breakpoints/viewportBreakpoints'
 
 const ProgressDiv = styled.div`
   background: ${colors.primary};
   width: 100%;
   height: 10px;
   z-index: 998;
+  opacity: 0.9;
+  backdrop-filter: blur(3px);
   &::before{
     content:'';
     top: 0;
@@ -14,8 +17,19 @@ const ProgressDiv = styled.div`
     position: absolute;
     z-index: 997;
     width: 100%;
-    height: 10px;
-    background: ${colors.white};
+    height: 100%;
+    background: ${colors.blue};
+  }
+  @media ${devices.tablet} {
+    //bottom: 0;
+    position: relative;
+    background: red;
+    height: 6px;
+    display: none;
+    &::before{
+      position: relative;
+      bottom: 0;
+    }
   }
 `
 

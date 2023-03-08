@@ -6,7 +6,6 @@ import Footer from '../Footer/Footer'
 export default function Layout({children}) {
   return (
     <>
-      <GlobalStyle/>
       <Header/>
       <main> {children} </main>
       <Footer/>

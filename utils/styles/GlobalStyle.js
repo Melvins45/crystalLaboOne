@@ -3,10 +3,10 @@ import colors from './colors'
 
 const GlobalStyles = createGlobalStyle`
     html,
-        body {
+        body{
           padding: 0;
           margin: 0;
-          width: 1200 px;
+          width: 100%;//1200 px;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;

@@ -8,7 +8,6 @@ import Sommary from '../Sommary/Sommary'
 //import { Carousel } from 'react-responsive-carousel'
 import Carousel from 'react-bootstrap/Carousel'
 
-
 export default function Template({content}) {
   
   const [top,setTop] = useState({})
@@ -19,10 +18,22 @@ export default function Template({content}) {
     setIndex(selectedIndex);
   }
   
+  const [topSommary, setTopSommary] = useState(0)
+  const [topPub, setTopPub] = useState(0)
+  
+  useEffect( () => {
+    const eltTop = (id) => {
+      return document.querySelector('#'+id).getBoundingClientRect().top}
+    const eltHeight = (id) => {
+      return document.querySelector('#'+id).getBoundingClientRect().bottom}
+    setTopPub(eltHeight("sommary")+15)
+    console.log('In effect of index, top pub is at', topPub)
+  } ,[])
   
   //console.log(window.scrollHeight)
   //console.log('In index tops are at', top)
   //console.log('content is ', content.articleBreakPoints[1].sub)
+  console.log('Out of effect of index, top pub is at', topPub)
   
   return (
     <div className="container">
@@ -30,16 +41,14 @@ export default function Template({content}) {
         <title>{content.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <ArticleSection>
         <ArticleMenu>
           <Sommary content={content}/>
-          <ArticlePub id="articlePub" top={680.4375} >
-            Besoin d'assistance ? Contactez-nous ou prenez un rendez-vous.
+          <ArticlePub id="articlePub" top={topPub} >
+            {content.articlePub}
           </ArticlePub>
         </ArticleMenu>
         <ArticleContent>
-          
           {
             content.articleBreakPoints.map( (article, index) => {
               //console.log(article.name,' refers to ',article.title)
@@ -52,7 +61,6 @@ export default function Template({content}) {
               </div>
             ) } )
           }
-          
         </ArticleContent>
       </ArticleSection>
     </div>
