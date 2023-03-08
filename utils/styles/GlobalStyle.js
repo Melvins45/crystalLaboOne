@@ -3,7 +3,7 @@ import colors from './colors'
 
 const GlobalStyles = createGlobalStyle`
     html,
-        body{
+        body, main{
           padding: 0;
           margin: 0;
           width: 100%;//1200 px;

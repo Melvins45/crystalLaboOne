@@ -95,8 +95,12 @@ const DropStyle =`
       padding: 10px;
     }
     & li:hover {
-      color: ${colors.primary};
-      text-decoration: ${colors.primary} underline;
+      color: ${colors.blue};
+      text-decoration: ${colors.blue} underline;
+    }
+    & li.active {
+      color: ${colors.blue};
+      text-decoration: ${colors.blue} underline;
     }
     & li:active {
       //transform: scale(0,7);
@@ -109,8 +113,8 @@ const DropStyle =`
       background: inherit;
       //z-index: 0;
       & li:hover {
-        color: ${colors.primary};
-        text-decoration: ${colors.primary} underline;
+        color: ${colors.blue};
+        text-decoration: ${colors.blue} underline;
       }
     }
 `

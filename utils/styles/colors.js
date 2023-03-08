@@ -3,6 +3,7 @@ const colors = {
     blue: '#2767b1',
     secondary: '#8186A0',
     backgroundLight: '#F9F9FC',
+    backgroundLight2: 'rgb(230,230,230)',
     backgroundDark: '#4F4C6B',
     loaderLight: '#F1F1F9',
     loaderDark: '#484664',

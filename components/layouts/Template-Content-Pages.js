@@ -1,14 +1,15 @@
-import {useReducer, useState, useEffect} from 'react'
+import {useReducer, useState, useEffect, useContext} from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
-import { ArticleMenu,ArticleSection, ArticleContent, ArticleSommary, ArticlePub} from '../Main/Article'
+import { ArticleMenu, ArticleSection, ArticleContent, ArticleSommary, ArticlePub} from '../Main/Article'
+import {ActivePageContext} from '../../utils/context/context'
 import Sommary from '../Sommary/Sommary'
 //import { Carousel } from 'react-responsive-carousel'
 import Carousel from 'react-bootstrap/Carousel'
 
-export default function Template({content}) {
+export default function Template({active, content}) {
   
   const [top,setTop] = useState({})
   
@@ -20,6 +21,9 @@ export default function Template({content}) {
   
   const [topSommary, setTopSommary] = useState(0)
   const [topPub, setTopPub] = useState(0)
+  const { activePage, setActivePage } = useContext(ActivePageContext)
+  setActivePage(active)
+  console.log('active Page in template is', activePage)
   
   useEffect( () => {
     const eltTop = (id) => {
@@ -38,7 +42,7 @@ export default function Template({content}) {
   return (
     <div className="container">
       <Head>
-        <title>{content.title}</title>
+        <title>{content.title} - Crystal Labo </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ArticleSection>

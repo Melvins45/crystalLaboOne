@@ -1,4 +1,4 @@
-import {useState, useReducer, useEffect} from 'react'
+import {useState, useReducer, useEffect, useContext} from 'react'
 import styled, {keyframes, css} from 'styled-components'
 import Link from 'next/link'
 import Dropdown from '../Dropdown/Dropdown'
@@ -7,6 +7,7 @@ import colors from '../../utils/styles/colors'
 import ProgressBar from '../Progressbar/Progressbar'
 import {header_pages} from '../../utils/pages'
 import devices from '../../utils/viewport breakpoints/viewportBreakpoints'
+import {ActivePageContext} from '../../utils/context/context'
 
 const burgerAppear = (lenght) => {
   console.log('burger lenght is ',lenght)
@@ -32,6 +33,7 @@ const burgerDisappear = (lenght) => {
 const HeaderDiv = styled.div`
   position: sticky;
   top: 0;
+  z-index: 998;
 `
 
 const Nav = styled.div`
@@ -75,7 +77,8 @@ const NavLi = styled.li`
     position: relative;
     padding: 0px;
     border-bottom: 1px solid rgba(0,0,0,0);
-    color: ${colors.secondary};
+    color: ${ ({active}) => active ? colors.primary : colors.secondary };
+    border-color: ${ ({active}) => active ? colors.primary : 'rgba(0,0,0,0)' };
     &:hover{
       color: ${colors.primary};
       border-color: ${colors.primary};
@@ -213,6 +216,8 @@ export default function Header() {
   const [lenghtBurgerMenu, setLenghtBurgerMenu] = useState(0)
   const [isFirstTimeDropped, setIsFirstTimeDropped] = useState(true)
   const [ended, setEnded] = useState(initialMobileDrop)
+  //const activePage = {page: 'specialities', subPage: 'parisotology'}
+  const { activePage } = useContext(ActivePageContext)
   
   console.log(drop)
   
@@ -260,14 +265,17 @@ export default function Header() {
       <NavUl type={'none'} >
           {
             headerBigPages.map( (page, index) => (
-              <NavLi key={page.name+'-'+index} id={'nav-li-'+index}>
+              <NavLi 
+              active={ activePage.page && ( activePage.page === 'rdv' ? 
+              false
+               : activePage.page === page.name ? true : false ) } 
+               key={page.name+'-'+index} id={'nav-li-'+index}>
                 <span
                   onClick={(e) => {
                     e.stopPropagation(); 
                     if ( pagesWithSubPages.includes(page.name) ) 
                     {dropInMobile(page.name); 
-                    setIsFirstTimeDropped(false) 
-                    endBool(page.name, !mobileDrop[page.name])} 
+                    setIsFirstTimeDropped(false) } 
                     }
                   }     
                 >
@@ -276,24 +284,28 @@ export default function Header() {
                   </Link> 
                 </span>
                 { pagesWithSubPages.includes(page.name) &&
-                (<Dropdown ended={ended} first={isFirstTimeDropped} windowWidth={windowWidth} parent={page.name} shown={mobileDrop} >
+                (<Dropdown first={isFirstTimeDropped} windowWidth={windowWidth} parent={page.name} shown={mobileDrop} >
                 {
                   header_pages
                   .filter( subPage => (subPage.sub === 1 && subPage.parent === page.name ) )
                   .map( (subPage, index) => 
-                    subPage.separate?
+                    subPage.separate ?
                     (<div key={''+subPage.name+'-'+index} >
                       <DropSeparatorDiv  > 
                         <DropSeparator/>
                       </DropSeparatorDiv>
                       <Link href={'/'+subPage.parent+subPage.slug} >
-                        <a><li>
+                        <a><li className={ activePage.subPage && ( activePage.subPage === 'rdv' ? 
+              ''
+               : activePage.subPage === subPage.name ? 'active' : '' ) } >
                           {subPage.title}
                         </li></a>
                       </Link>
-                    </div> ):
+                    </div> ) :
                     (<Link key={subPage.name+'-'+index} href={'/'+subPage.parent+subPage.slug}>
-                      <a><li>
+                      <a><li className={ activePage.subPage && ( activePage.subPage === 'rdv' ? 
+              ''
+               : activePage.subPage === subPage.name ? 'active' : '' ) } >
                         {subPage.title}
                       </li></a>
                     </Link>)
@@ -312,15 +324,17 @@ export default function Header() {
     <HeaderDiv>
       <Nav>
         { windowWidth <= 768 &&
-          ( <>
-              <BurgerImg src='/burger.svg' alt='burger' onClick={ (e)=>{ setBurgerClicked([true, false]) } } /> 
-                <BurgerMenu 
+          ( <>     
+              <BurgerImg src='/burger.svg' alt='burger' onClick={ (e)=>{ setBurgerClicked([true, false]) } } />
+              <BurgerMenu 
                 hadClicked={burgerClicked} 
                 hadStarted={burgerStartAnimation} 
                 onAnimationStart={ () =>  { burgerClicked[0] && setBurgerStartAnimation(true) } } 
                 id="burgerMenu" 
                 lenght={lenghtBurgerMenu} >
-                  <BurgerLogoImg src='/crystallabo-logo.png' width={lenghtBurgerMenu*80/100} alt='logo in burgerMenu'/>
+                  <Link href='/'>
+                    <BurgerLogoImg src='/crystallabo-logo.png' width={lenghtBurgerMenu*80/100} alt='logo in burgerMenu'/>
+                  </Link>
                   {PageUlList}
                 </BurgerMenu> 
                 <BurgerHide hadClicked={burgerClicked} onTouchStart={ (e)=>{ setBurgerClicked([false, false]); setBurgerStartAnimation(false) } } />

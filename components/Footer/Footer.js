@@ -3,7 +3,8 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import colors from '../../utils/styles/colors'
 import {footer_pages} from '../../utils/pages'
-import devices from '../../utils/viewport breakpoints/viewportBreakpoints'
+import devices from '../../utils/viewport breakpoints/viewportBreakpoints' 
+import ProgressBar from '../Progressbar/Progressbar'
 
 export const FooterBig = styled.footer`
   padding-top: 18px;
@@ -118,7 +119,9 @@ export const FooterLastSubscribe = styled.button`
 
 export const FooterLastSubscribeInput  = styled.input`
   display: inline;
+  border-color: rgba(0,0,0,0);
   border-radius: 12px 0 0 12px;
+  background: ${colors.backgroundLight2};
   height: 1.4rem;
   font-size: 0.6rem;
   margin-top: 0px;
@@ -149,11 +152,19 @@ const footerBigPages = footer_pages
   .filter( page => page.sub == 0 )
 
 export default function Footer(){
+  
   const [topSommary,setTopSommary] = useState(0)
   const [subInput, setSubInput] = useState("")
+  const [windowWidth, setWindowWidth] = useState(0)
   const handleOnChange = (e) => {
     setSubInput(e.target.value)
   }
+  
+  useEffect( ()=>{
+      setWindowWidth(window.innerWidth)
+      //const el = document.getElementById('burgerMenu')
+      //setLenghtBurgerMenu(el.offsetWidth)
+    } )
   
   /*useEffect( () => {
     const eltTop = (id) => {
@@ -193,12 +204,11 @@ export default function Footer(){
           }
         </FooterAllPages>
         <FooterLast>
-          <FooterLastImg src="/crystallabo-logo.png" alt='logo' />
-          
+          <FooterLastImg src="/crystallabo-logo.png" alt='logo' />    
         </FooterLast>
       </FooterPages>
       <FooterDivSubscribe>
-        <FooterLastSubscribeInput type="text" name="subscribe" onChange={handleOnChange} />
+        <FooterLastSubscribeInput type="text" name="subscribe" placeholder='Votre adresse e-mail' onChange={handleOnChange} />
         <FooterLastSubscribe> {'Abonnez-vous'} </FooterLastSubscribe>
       </FooterDivSubscribe>
       <FooterCopyright>

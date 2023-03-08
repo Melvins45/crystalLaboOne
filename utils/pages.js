@@ -11,7 +11,7 @@ export const header_pages = [
     slug: '/'
   },
   {
-    name: 'parisitology',
+    name: 'parisotology',
     title: 'Parisotologie',
     sub: 1,
     separate: false,
@@ -156,7 +156,7 @@ export const header_pages = [
     title: 'Nous contacter',
     sub: 0,
     separate: false,
-    slug: '/'
+    slug: '/contact_us'
   }
 ]
 
@@ -169,7 +169,7 @@ export const footer_pages = [
     slug: '/'
   },
   {
-    name: 'parisitology',
+    name: 'parisotology',
     title: 'Parisotologie',
     sub: 1,
     separate: false,

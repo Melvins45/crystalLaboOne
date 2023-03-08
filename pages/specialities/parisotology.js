@@ -1,6 +1,8 @@
 import Template from'../../components/layouts/Template-Content-Pages'
 import content from '../../utils/content/specialities'
 
-export default function Speciality(){
-  return (<Template content={content('parisotology')}/>)
+export default function Page(){
+  return (<Template 
+  active={{ page: 'specialities', subPage: 'parisotology' }}
+  content={content('parisotology')}/>)
 }
