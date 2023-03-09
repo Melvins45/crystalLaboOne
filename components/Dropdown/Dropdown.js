@@ -147,7 +147,7 @@ const DropFirst = styled.ul`
       css`
       display: none;
       `
-      } 
+      }       
     }
 `
 const DropAfter = styled.ul`
@@ -162,10 +162,10 @@ const DropAfter = styled.ul`
 const DropNull = styled.ul`
     display: none;
 `
-const Dropdowny = ({parent, shown, children}) => (
+const Dropdowny = ({type, parent, shown, children}) => (
     shown.bool ?
     shown.actual === parent &&
-    <DropFirst canAnimate={shown.prev === 0} > {children} </DropFirst>
+    <DropFirst type={type} canAnimate={shown.prev === 0} > {children} </DropFirst>
     /*shown.prev === 0 ? 
       shown.actual === parent && 
         <DropFirst>{children}</DropFirst>  
@@ -178,20 +178,20 @@ const Dropdowny = ({parent, shown, children}) => (
     : <DropNull/>
 )
 
-const MobileDropdown = ({ended, first, parent, shown, children}) => (
+const MobileDropdown = ({type, ended, first, parent, shown, children}) => (
     
-    <DropFirst ended={ended} first={first} shown={shown[parent]} canAnimate={shown.prev === 0} > {children} </DropFirst>
+    <DropFirst type={type} ended={ended} first={first} shown={shown[parent]} canAnimate={shown.prev === 0} > {children} </DropFirst>
 )
 
-export default function Dropdown({first, windowWidth, parent, shown, children}) {
+export default function Dropdown({type, first, windowWidth, parent, shown, children}) {
   const[ended, setEnded] = useState(false)
-  if ( windowWidth > 768 )
-    return (<Dropdowny shown={shown} parent={parent}>
+  if ( type === 'desktop' )
+    return (<Dropdowny type={type} shown={shown} parent={parent}>
       {children}
     </Dropdowny>
   )
   else
-    return (<MobileDropdown onAnimationEnd={ () => { console.log("the  anim ends");shown[parent] ? setEnded(false) : setEnded(true) } } ended={ended} first={first} shown={shown} parent={parent}>
+    return (<MobileDropdown type={type} onAnimationEnd={ () => { console.log("the  anim ends");shown[parent] ? setEnded(false) : setEnded(true) } } ended={ended} first={first} shown={shown} parent={parent}>
       {children}
     </MobileDropdown>
   )

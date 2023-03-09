@@ -1,14 +1,20 @@
 import {useReducer, useState, useEffect} from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import styled from 'styled-components'
-import { ArticleMenu, ArticleSection, ArticleContent, ArticleSommary, ArticlePub} from '../components/Main/Article'
+//import Head from 'next/head'
+import dynamic from 'next/dynamic'
+//import Link from 'next/link'
+//import { useRouter } from 'next/router'
+//import styled from 'styled-components'
+//import { ArticleMenu, ArticleSection, ArticleContent, ArticleSommary, ArticlePub} from '../components/Main/Article'
 import Template from'../components/layouts/Template-Content-Pages'
-import Sommary from '../components/Sommary/Sommary'
+//import Sommary from '../components/Sommary/Sommary'
 //import { Carousel } from 'react-responsive-carousel'
-import Carousel from 'react-bootstrap/Carousel'
+//import Carousel from 'react-bootstrap/Carousel'
 import content from '../utils/content/template-content'
+//import {LoaderParagraph} from '../components/Loader/Loader'
+
+/*const Template = dynamic(() => import('../components/layouts/Template-Content-Pages'), {
+  loading: () => <p>Loading...</p>,
+})*/
 
 export default function Home() {
   /*
@@ -75,5 +81,6 @@ export default function Home() {
   var path = require('path');
   var scriptName = path.basename(__filename, path.extname(__filename))
   //console.log(scriptName)
+  //return <LoaderParagraph height='1.3rem' rounded='.1rem' theme='light' numberLines={[1,2,3,4,4.5,5]} />
   return (<Template active={{page: 'home'}} content={content}/>)
 }

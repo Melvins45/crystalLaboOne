@@ -1,5 +1,5 @@
 import React from 'react'
-import colors from './styles/colors'
+import colors from '../../utils/styles/colors'
 import styled, { keyframes } from 'styled-components'
  
 const rotate = keyframes`
@@ -77,6 +77,39 @@ export function LoaderImg({ width, height, rounded, theme }) {
    return <LoaderImg/>
  }
  
+ export const LoaderLineText = styled.div`
+      width: ${ ({width}) => width };
+      height: ${ ({height}) => height };
+      border-radius: ${ ({rounded}) => rounded };
+      background: ${ ({theme}) => theme === 'light' ? colors.loaderLight : colors.loaderDark };
+      position: relative;
+      //z-index: 2;
+      
+      &:before{
+        content: '';
+        top: 0;
+        left: 0;
+        position: absolute;
+        //z-index:3;
+        width: 30%;
+        height: 100%;
+        background: ${ ({theme}) => theme === 'light' ? colors.backgroundLight : colors.backgroundDark };
+        animation: ${translateSkewed( '30%',  '100%' ) } 1s infinite linear;
+      }
+   `
+export function LoaderParagraph({width, height, rounded, theme, numberLines}){
+  return (
+    <>
+      <LoaderLineText width={'50%'} height={height} rounded={rounded} theme={theme} />
+      { 
+        numberLines.map( (num, index) => 
+          <LoaderLineText key={`loader-is-${index}`} width={'100%'} height={height} rounded={rounded} theme={theme} />
+        )
+      }
+    </>
+  )
+ }
+
  export const testLoad = ( loading ) => {
    return typeof loading === 'undefined' || loading === true
  }

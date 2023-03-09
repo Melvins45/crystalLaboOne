@@ -8,7 +8,51 @@ const content = {
         sub: 0,
         content: (
           <p>
-            La parasitologie est l'étude des parasites, de leurs hôtes et de leurs interactions mutuelles. En tant que discipline biologique, les enjeux de la parasitologie ne sont pas tant déterminés par l'organisme ou l'environnement en question, mais par les modes de vie et les interactions durables entre parasites et leurs hôtes (si elles n'étaient pas durable, l’hôte ou le parasite disparaitrait).[pas clair] Elle est donc à la croisée d'autres disciplines telles que la biologie cellulaire, la bio-informatique, la biologie moléculaire, l'immunologie, la génétique et l'écologie, l'écoépidémiologie.
+            La bactériologie est l'étude des bactéries pouvant être à l'origine de parhologies.
+          </p>
+        )
+      },
+      {
+        name: "body",
+        title: "Ce qu'il faut savoir sur la parisotologie",
+        title_id: "bacteriology-intro",
+        sub: 0,
+        content: (
+          <p>
+            La bactériologie est l'étude des bactéries pouvant être à l'origine de parhologies.
+          </p>
+        )
+      },
+      {
+        name: "body_1",
+        title: "Infections bactériologiques",
+        title_id: "bacteriology-intro",
+        sub: 0,
+        content: (
+          <p>
+            Il s'agit du :
+            <ul>
+              <li>Les cervicites</li>
+              <li>Les urétrites</li>
+              <li> Les gastrites </li>
+            </ul>
+          </p>
+        )
+      },
+      {
+        name: "body_2",
+        title: "Infections bactériologiques",
+        title_id: "bacteriology-intro",
+        sub: 0,
+        content: (
+          <p>
+            Il s'agit du :
+            <ul>
+              <li>PCV+ATB( Prélèvement cervico-vaginal et Anti Biogramme)</li>
+              <li>PU+ATB (Prélèvement urétral)</li>
+              <li>ECBU+ATB ( Examen Cytobacteriologique de l’Urine)</li>
+              <li> LCR+ATB ( Liquide Céphalo-rachidien)</li>
+            </ul>
           </p>
         )
       }

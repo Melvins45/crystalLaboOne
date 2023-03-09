@@ -5,6 +5,9 @@
     "start": "next dev -p 3450"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "bootstrap": "^5.2.3",
     "next": "9.3.5",
     "prop-types": "^15.8.1",

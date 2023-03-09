@@ -8,6 +8,9 @@ import ProgressBar from '../Progressbar/Progressbar'
 import {header_pages} from '../../utils/pages'
 import devices from '../../utils/viewport breakpoints/viewportBreakpoints'
 import {ActivePageContext} from '../../utils/context/context'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSortAsc, faSortDesc } from "@fortawesome/free-solid-svg-icons";
+
 
 const burgerAppear = (lenght) => {
   console.log('burger lenght is ',lenght)
@@ -85,6 +88,11 @@ const NavLi = styled.li`
     }
     & a:hover{
       color: ${colors.primary};
+    }
+    & svg{
+      padding-left: .2rem;
+      padding-top: 1rem;
+      padding-bottom: .2rem;
     }
     @media ${devices.tablet} {
       width: 100%;
@@ -280,11 +288,13 @@ export default function Header() {
                   }     
                 >
                   { pagesWithSubPages.includes(page.name) ? 
-                  page.title : 
+                  (<>{page.title} <FontAwesomeIcon 
+                  icon={ mobileDrop[page.name] ? faSortAsc : faSortDesc} 
+></FontAwesomeIcon></> ) : 
                   <Link href={page.slug}>{page.title}</Link> }
                 </span>
                 { pagesWithSubPages.includes(page.name) &&
-                (<Dropdown first={isFirstTimeDropped} windowWidth={windowWidth} parent={page.name} shown={mobileDrop} >
+                (<Dropdown type='mobile' first={isFirstTimeDropped} windowWidth={windowWidth} parent={page.name} shown={mobileDrop} >
                 {
                   header_pages
                   .filter( subPage => (subPage.sub === 1 && subPage.parent === page.name ) )
@@ -360,11 +370,13 @@ export default function Header() {
                   onMouseOver={(e) => {e.stopPropagation(); changeDrop(index)}}
                 >
                   { pagesWithSubPages.includes(page.name) ? 
-                  page.title : 
+                  (<>{page.title} <FontAwesomeIcon 
+                  icon={ mobileDrop[page.name] ? faSortAsc : faSortDesc} 
+></FontAwesomeIcon></> ) : 
                   <Link href={page.slug}>{page.title}</Link> }
                 </span>
                 { pagesWithSubPages.includes(page.name) &&
-                (<Dropdown windowWidth={windowWidth} parent={index} shown={drop} >
+                (<Dropdown type='desktop' windowWidth={windowWidth} parent={index} shown={drop} >
                 {
                   header_pages
                   .filter( subPage => (subPage.sub === 1 && subPage.parent === page.name ) )

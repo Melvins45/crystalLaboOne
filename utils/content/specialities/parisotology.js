@@ -4,7 +4,7 @@ const content = {
       {
         name: "intro",
         title: "Docteur, c'est quoi la parisotologie ? ",
-        title_id: "parisotology-intro",
+        title_id: "Introduction",
         sub: 0,
         content: (
           <p>
@@ -35,6 +35,9 @@ const content = {
             <ul>
               <li>Le paludisme</li>
               <li>La maladie du sommeil(trypanosomiase humaine africaine)</li>
+              <li> L'onchocercose </li>
+              <li> La schistosomiase </li>
+              <li> L'amibiase intestinale</li>
             </ul>
           </p>
         )
@@ -49,8 +52,8 @@ const content = {
           <p>
             Nous vous proposons des examens vous permettant d'identifier ces différentes. Nous pouvons ainsi citer: 
             <ul>
-              <li>La goutte epaisse</li>
-              <li>La coprologie</li>
+              <li>La goutte épaisse(la recherche des plasmodiums dans le sang)</li>
+              <li>La coprologie (examen des selles) </li>
               <li>La recherche des microfillaires cutanée et sanguicoles</li>
             </ul>
           </p>
