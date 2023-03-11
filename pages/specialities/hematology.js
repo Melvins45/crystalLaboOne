@@ -3,6 +3,6 @@ import content from '../../utils/content/specialities'
 
 export default function Page(){
   return (<Template 
-  active={{ page: 'specialities', subPage: 'toxicology' }}
-  content={content('toxicology')}/>)
+  active={{ page: 'specialities', subPage: 'hematology' }}
+  content={content('hematology')}/>)
 }

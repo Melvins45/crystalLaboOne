@@ -6,6 +6,19 @@ transform: translateX(${(props) => eltHeight(shown.prev)});
 
 
 
+      {
+        name: 'body',
+        title: "Maladies parasitaires et examens ",
+        title_id: "",
+        sub: 0,
+        content: (
+          <p>
+            La parasitologie médicale étudie les maladies de l'homme provoquées directement ou indirectement par les parasites. Le contexte biologique qui entraîne l'intervention de ces agents bien particuliers éclaire en grande partie leur action et mérite à ce titre qu'on en rappelle les principaux traits.
+          </p>
+        )
+      },
+
+
 
                   <Link href={!pagesWithSubPages.includes(page.name) ? page.slug : "#" }>
                     {page.title}

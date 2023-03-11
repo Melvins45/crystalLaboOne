@@ -1,3 +1,5 @@
+import {DivInLi, ImgInLi} from './'
+
 const content = {
     title : 'Imagerie Médicale',
     articleBreakPoints : [
@@ -8,7 +10,48 @@ const content = {
         sub: 0,
         content: (
           <p>
-            La parasitologie est l'étude des parasites, de leurs hôtes et de leurs interactions mutuelles. En tant que discipline biologique, les enjeux de la parasitologie ne sont pas tant déterminés par l'organisme ou l'environnement en question, mais par les modes de vie et les interactions durables entre parasites et leurs hôtes (si elles n'étaient pas durable, l’hôte ou le parasite disparaitrait).[pas clair] Elle est donc à la croisée d'autres disciplines telles que la biologie cellulaire, la bio-informatique, la biologie moléculaire, l'immunologie, la génétique et l'écologie, l'écoépidémiologie.
+            L'imagerie médicale regroupre différentes techniques d'exploration du corps humain permettant des images 2D et 3D de nos structures et organes internes. Elle compte donc plusieurs branches mais ici, à Crystal Labo, nous nous appuyons plus sur l'échographie.
+          </p>
+        )
+      },
+      {
+        name: "body_1",
+        title: "Types d'échographies",
+        title_id: "bacteriology-intro",
+        sub: 0,
+        content: (
+          <p>
+            Au Crystal Labo, vous pourrez trouver:
+            <ul>
+              <li> L'échographie pelvienne:
+                <DivInLi>
+                  <ImgInLi src ='/echographie-pelvienne.jpeg' alt0'echographie-pelvienne' />
+                  <p>
+                    Elle se fait au niveau de la ceinture pelvienne(bas-ventre).
+                  </p>
+                </DivInLi>
+              </li>
+              <li> L'échographie endo-vaginale</li>
+              <li> L'échographie cardiaque</li>
+              <li> L'échographie thyroïdienne:
+                <p>
+                  Elle se fait au niveau du cou.
+                </p>
+              </li>
+              <li>L'échographie mammaire
+              </li>
+            </ul>
+          </p>
+        )
+      },
+      {
+        name: 'conclu',
+        title: 'Conseil du médécin',
+        title_id: "parisotology-conclu",
+        sub: 0,
+        content: (
+          <p>
+            Renseignez-vous toujours auprès d'un médecin avant de faire un examen médical.
           </p>
         )
       }

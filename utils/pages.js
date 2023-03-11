@@ -43,20 +43,20 @@ export const header_pages = [
     slug: '/immuno-serology'
   },
   {
-    name: 'virology',
-    title: 'Virologie',
+    name: 'hematology',
+    title: 'Hématologie',
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: '/virology'
+    slug: '/hematology'
   },
   {
-    name: 'toxicology',
-    title: 'Toxicologie',
+    name: 'hormonology',
+    title: 'Hormonologie',
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: '/toxicology'
+    slug: '/hormonology'
   },
   {
     name: 'anatomopathology',
@@ -201,20 +201,20 @@ export const footer_pages = [
     slug: '/immuno-serology'
   },
   {
-    name: 'virology',
-    title: 'Virologie',
+    name: 'hematology',
+    title: 'Hématologie',
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: '/virology'
+    slug: '/hematology'
   },
   {
-    name: 'toxicology',
-    title: 'Toxicologie',
+    name: 'hormonology',
+    title: 'Hormonologie',
     sub: 1,
     separate: false,
     parent: 'specialities',
-    slug: '/toxicology'
+    slug: '/hormonology'
   },
   {
     name: 'anatomopathology',
