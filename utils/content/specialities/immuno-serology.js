@@ -23,7 +23,7 @@ const content = {
           <p>
             Il s'agit du :
             <ul>
-              <li> Les hépatites 
+              <li> Les hépatites:
                 <DivInLi>
                   <ImgInLi src='/hepatite.jpeg' alt='hepatite' />
                   <p>
@@ -37,7 +37,7 @@ const content = {
                   </p>
                 </DivInLi>
               </li>
-              <li> La chlamydia
+              <li> La chlamydia:
                 <p>
                   C'est une maladie sexuellement transmissible courante qui peut ne pas provoquer de symptômes. Sinon, certaines personnes peuvent présenter des synptômes comme:
                     <ul>
@@ -46,7 +46,7 @@ const content = {
                     </ul>
                 </p>
               </li>
-              <li> La syphilis
+              <li> La syphilis:
                 <p>
                   C'est une infection bactérienne qui se transmet lors de rapports sexuels. Elle se manifeste par:
                   <ul>
@@ -59,7 +59,7 @@ const content = {
                   </ul>
                 </p>
               </li>
-              <li> La toxoplasmose
+              <li> La toxoplasmose:
                 <p>
                   Se transmettant par des excréments de chat ou des aliments contaminés, il provoque généralement:
                   <ul>
@@ -70,7 +70,7 @@ const content = {
                   </ul>
                 </p>
               </li>
-              <li> La rubéole
+              <li> La rubéole:
                 <p>
                   Ayant un vaccin préventif, elle se propage généralement par voie respiratoire ou par contact direct avec la salive ou le mucus d'une personne infectée. Ses symptômes les plus courants sont:
                   <ul>
@@ -82,7 +82,7 @@ const content = {
                   </ul>
                 </p>
               </li>
-              <li> L'herpès virale
+              <li> L'herpès virale:
                 <p>
                   Il cause des lésions contagieuses, le plus souvent autour de la bouche ou sur les parties génitales.
                 </p>
@@ -98,64 +98,64 @@ const content = {
         sub: 0,
         content: (
           <p>
-            Selon la maladie qu'on veut diagnostiquer, on peut procéder à plusieurs examens :
+            Selon la maladie qu'on veut diagnostiquer, on peut procéder à plusieurs examens, tous disponibles chez Crystal Labo:
             <ul>
-              <li> La clamydia IgG et IgM
+              <li> La clamydia IgG et IgM:
                 <p>
                   Il permet de diagnostiquer la chlamydia.
                 </p>
               </li>
-              <li> L'Hépatite B et C
+              <li> L'Hépatite B et C:
                 <p>
                   Il permet de diagnostiquer l'hépatite.
                 </p>
               </li>
-              <li> La toxo IgG et IgM
+              <li> La toxo IgG et IgM:
                 <p>
                   Il permet de diagnostiquer la toxoplasmose.
                 </p>
               </li>
-              <li> La rubéole IgG et IgM
+              <li> La rubéole IgG et IgM:
                 <p>
                   Il permet de diagnostiquer la rubéole.
                 </p>
               </li>
-              <li> L'herpès 1 et 2
+              <li> L'herpès 1 et 2:
                 <p>
                   Il permet de diagnostiquer l'herpès.
                 </p>
               </li>
-              <li> ASLO (Anti StreptoLysines O)
+              <li> ASLO (Anti StreptoLysines O):
                 <p>
                   Il permet de diagnostiquer une infection à streptocoques.
                 </p>
               </li>
-              <li> CRP ( Protéine C Réactive )
+              <li> CRP ( Protéine C Réactive ):
                 <p>
                   Il permet de détecter des inflammations dans l'organisme.
                 </p>
               </li>
-              <li> FR (Facteur Rhumatoïde)
+              <li> FR (Facteur Rhumatoïde):
                 <p>
                   Il permet de détecter des inflammations et dommages au niveau des articulations du corps.
                 </p>
               </li>
-              <li> VIH
+              <li> VIH:
                 <p>
                   Il permet de diagnostiquer le SIDA.
                 </p>
               </li>
-              <li> Anti-Corps anti HBs, HBe, HBc, HCv
+              <li> Anti-Corps anti HBs, HBe, HBc, HCv:
                 <p>
                   Il permet de diagnostiquer les hépatites.
                 </p>
               </li>
-              <li> Widal
+              <li> Widal:
                 <p>
                   Il permet de diagnostiquer les fièvres typhoïde et paratyphoïde.
                 </p>
               </li>
-              <li> TPHA/VDRL ( Treponema Pallidum Hemagglutinations Assay /Venereal Disease Research Laboratory)
+              <li> TPHA/VDRL ( Treponema Pallidum Hemagglutinations Assay /Venereal Disease Research Laboratory);
                 <p>
                   Il permet de diagnostiquer la syphilis.
                 </p>

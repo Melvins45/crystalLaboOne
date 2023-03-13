@@ -13,46 +13,7 @@ const appear = keyframes`
     opacity: 1;
   }
 `
-const appearInMobile = keyframes`
-  from {
-    transform: scaleY(0);
-  }
-  to {
-    transform: scaleY(1);
-  }
-`
 
-const disappearInMobile = keyframes`
-  from {
-    //display: flex;
-    position: relative;
-    transform: scaleY(1);
-  }
-  to {
-    //display: none;
-    position: absolute;
-    transform: scaleY(0);
-  }
-`
-const noAnimation = keyframes`
-  from{}to{}
-`
-const clicked = keyframes`
-  0% {
-    transfrom: scale(1);
-  }
-  50% {
-    transform: scale(0,7);
-  }
-  100% {
-    transform: scale(1);
-  }
-`
-const child = [
-  <li> One </li>,
-  <li> Two </li>,
-  <li> Three </li>
-]
 const eltHeight = (id) => {
     return document.querySelector('#nav-li-'+id).getBoundingClientRect().x}
 const factorTranslate = (prev, actual) => {
@@ -126,28 +87,41 @@ const DropFirst = styled.ul`
     } 
     @media ${devices.tablet}{
       transform-origin: top left;
-      /*display: 
-      ${ ({ended, first, shown}) => 
-      !first ? 
-      shown ? 'flex'
-      : !ended ? 'none' : 'flex' 
-      : 'none' };*/
-      ${({first, shown}) => !first ?  
-        shown ? 
+      overflow: hidden;
+      &:after{
+        height: 0;
+        transition: height 0.5s linear;
+        max-height: 50px;
+      }
+      & > div {
+        transform-origin: top left;
+        transform: scaleY(0);
+        max-height: 0;
+        margin-bottom: -2000px;
+        transition: transform 0.5s, margin-bottom 0.5s cubic-bezier(1, 0, 1, 1),
+                    visibility 0s 0.5s, max-height 0s 0.5s;
+        visibility: hidden;
+        max-height: 0;
+      }
+      ${({shown}) =>
+        shown &&
       css`
-      display: flex;
-      position: relative;
-      transform: scaleY(1);
-      animation: ${appearInMobile} 200ms linear;` : 
-      css`
-      display: flex;
-      position: absolute;
-      transform: scaleY(0);
-      animation: ${disappearInMobile} 200ms linear;` :
-      css`
-      display: none;
-      `
-      }       
+      //background: red;
+      &:after{
+        content: '';
+        height: 50px;
+        transition: height 0.5s linear, max-height 0s .5s linear;
+        max-height: 0px;
+      }
+      & > div {
+        transform-origin: top left;
+        transform: scaleY(1);
+        transition: margin-bottom 0.5s cubic-bezier(0, 0, 0, 1), transform .5s;
+        visibility: visible;
+        margin-bottom: 0;
+        max-height: 1000000px;
+      }
+      `    
     }
 `
 const DropAfter = styled.ul`
@@ -180,19 +154,78 @@ const Dropdowny = ({type, parent, shown, children}) => (
 
 const MobileDropdown = ({type, ended, first, parent, shown, children}) => (
     
-    <DropFirst type={type} ended={ended} first={first} shown={shown[parent]} canAnimate={shown.prev === 0} > {children} </DropFirst>
+    <DropFirst type={type} shown={shown[parent]} canAnimate={shown.prev === 0} > 
+      <div>
+        {children} 
+      </div>
+    </DropFirst>
 )
 
-export default function Dropdown({type, first, windowWidth, parent, shown, children}) {
-  const[ended, setEnded] = useState(false)
-  if ( type === 'desktop' )
+const DropSimples = styled.div`
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+      &:after{
+        height: 0;
+        transition: height 0.5s linear;
+        max-height: 50px;
+      }
+      & > div {
+        transform-origin: top left;
+        transform: scaleY(0);
+        max-height: 0;
+        margin-bottom: -2000px;
+        transition: transform 0.5s,margin-bottom 0.5s cubic-bezier(1, 0, 1, 1),
+                    visibility 0s 0.5s, max-height 0s 0.5s;
+        visibility: hidden;
+        max-height: 0;
+      }
+      ${({shown}) =>
+        shown &&
+      css`
+      &:after{
+        content: '';
+        height: 50px;
+        transition: height 0.5s linear, max-height 0s .5s linear;
+        max-height: 0px;
+      }
+      & > div {
+        transform-origin: top left;
+        transform: scaleY(1);
+        transition: margin-bottom 0.5s cubic-bezier(0, 0, 0, 1), transform .5s;
+        visibility: visible;
+        margin-bottom: 0;
+        max-height: 1000000px;
+      }
+      `    
+      }
+`
+export function DropSimple({shown, parent, children}){
+  return (
+    <DropSimples shown={shown[parent]}>
+      <div>
+        {children}
+      </div>
+    </DropSimples>
+  )
+}
+
+export default function Dropdown({type, windowWidth, parent, shown, children}) {
+  if ( type === 'desktop' ) {
     return (<Dropdowny type={type} shown={shown} parent={parent}>
       {children}
     </Dropdowny>
-  )
-  else
-    return (<MobileDropdown type={type} onAnimationEnd={ () => { console.log("the  anim ends");shown[parent] ? setEnded(false) : setEnded(true) } } ended={ended} first={first} shown={shown} parent={parent}>
-      {children}
-    </MobileDropdown>
-  )
+    )
+  }else{
+    //console.log('In MobileDropdown', shown);
+    
+    return (
+      <MobileDropdown
+        type={type} 
+        shown={shown} 
+        parent={parent}>
+        {children}
+      </MobileDropdown>)
+  }
+  //return ( <div> {children} </div> )
 }

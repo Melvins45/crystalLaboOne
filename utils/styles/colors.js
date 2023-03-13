@@ -9,6 +9,7 @@ const colors = {
     loaderDark: '#484664',
     dark: '#2F2E41',
     white: 'white',
-    black: 'black'
+    black: 'black',
+    grey: 'grey'
 }
 export default colors

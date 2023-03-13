@@ -39,59 +39,59 @@ const content = {
         sub: 0,
         content: (
           <p>
-            Selon la maladie qu'on veut diagnostiquer, on peut procéder à plusieurs examens :
+            Selon la maladie qu'on veut diagnostiquer, on peut procéder à plusieurs examens, tous disponibles chez Crystal Labo:
             <ul>
-              <li> La glycémie
+              <li> La glycémie:
                 <p>
                   Il permet d'obtenir le taux de sucre dans le sang.
                 </p>
               </li>
-              <li> L'ionogramme complet
+              <li> L'ionogramme complet:
                 <p>
                   Il permet de doser des paramètres tels que le fer, le calcium, le magnésium, le sodium, le potassium et autres vitamines dans le corps.
                 </p>
               </li>
-              <li> L'hémoglobine glyquée(HbA1c)
+              <li> L'hémoglobine glyquée(HbA1c):
                 <p>
                   C'est un test fait pour évaluer l'équilibre de la glycémie sur 3 mois.
                 </p>
               </li>
-              <li> Le bilirubine conjuguée et totale
+              <li> Le bilirubine conjuguée et totale:
                 <p>
                   Il permet d'explorer le foie et la bile.
                 </p>
               </li>
-              <li> L'acide urique
+              <li> L'acide urique:
                 <p>
                   Il permet de diagnostiquer la goutte ou une insuffisance rénale.
                 </p>
               </li>
-              <li> Le profil lipidique
+              <li> Le profil lipidique:
                 <p>
                   Il permet d'évaluer le cholestérol total, le cholestérol HDL, le cholestérol LDL et les triglycerides.
                 </p>
               </li>
-              <li> L'albumine/ Protéine totale
+              <li> L'albumine/ Protéine totale:
                 <p>
                   Il permet d'évaluer les protéines en prélevant le sang.
                 </p>
               </li>
-              <li> L'albumine/Sucre
+              <li> L'albumine/Sucre:
                 <p>
                   Il permet d'évaluer les sucres en prélevant les urines.
                 </p>
               </li>
-              <li>L'urée/Créat
+              <li>L'urée/Créat:
                 <p>
                    Il permet d'explorer le rein.
                 </p>
               </li>
-              <li> La transaminase ( ASAT/ ALAT ou SGPT/SGOT )
+              <li> La transaminase ( ASAT/ ALAT ou SGPT/SGOT ):
                 <p>
                   Il permet d'explorer le coeur et le foie.
                 </p>
               </li>
-              <li> La gamma Gt 
+              <li> La gamma Gt :
                 <p>
                   Il permet d'explorer le foie.
                 </p>

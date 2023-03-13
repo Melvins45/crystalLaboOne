@@ -6,6 +6,19 @@ import { ArticleMenu,ArticleSection, ArticleContent, ArticleSommary, ArticlePub}
 //import { Carousel } from 'react-responsive-carousel'
 import Carousel from 'react-bootstrap/Carousel'
 
+const dref = (
+    <div className="container">
+      <Head>
+        <title>{`Prenez rendez-vous en ligne - Crystal Labo`}</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <ArticleSection>
+        <ArticleContent>
+        </ArticleContent>
+      </ArticleSection>
+    </div>
+)
+
 const articleBreakpoints = ['intro','body','conclu']
 const subArticleBreakpoints = ['body_1','body_2']
 const initialBreaks = {

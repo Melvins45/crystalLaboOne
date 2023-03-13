@@ -22,7 +22,7 @@ export default function Template({active, content}) {
   const [topSommary, setTopSommary] = useState(0)
   const [topPub, setTopPub] = useState(0)
   const { activePage, setActivePage } = useContext(ActivePageContext)
-  setActivePage(active)
+  
   console.log('active Page in template is', activePage)
   
   useEffect( () => {
@@ -31,6 +31,7 @@ export default function Template({active, content}) {
     const eltHeight = (id) => {
       return document.querySelector('#'+id).getBoundingClientRect().bottom}
     setTopPub(eltHeight("sommary")+15)
+    setActivePage(active)
     console.log('In effect of index, top pub is at', topPub)
   } ,[])
   
@@ -58,7 +59,7 @@ export default function Template({active, content}) {
               //console.log(article.name,' refers to ',article.title)
               return (
               <div  key={''+article.name+'-'+index} >
-                <h3 under={article.sub} id={article.name} > {article.title} </h3>
+                { index===0 ? (<h1 under={article.sub} id={article.name} > {article.title} </h1>) : (<h3 under={article.sub} id={article.name} > {article.title} </h3>)}
                 <p>
                   {article.content}
                 </p>

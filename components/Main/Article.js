@@ -8,41 +8,64 @@ import devices from '../../utils/viewport breakpoints/viewportBreakpoints'
     display: flex;
     width: 100%;//1200px;
     gap: 5em;
-    & h3{
+    & h1{
+      font-size: 2.5rem;
       color: ${colors.primary};
     }
-    & h3[under]{
+    & h3{
+      font-size: 1.5rem;
       color: ${colors.blue};
     }
+    
     @media ${devices.tablet} {
       //width: 100vh;
       //text-align: justify;
+      & h1{
+        font-size: 2.2rem;
+      }
     }
   `
   
   export const ArticleContent = 
   styled.article`
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin-right: 4em;
     line-height: 1.7rem;
     margin-top: 1rem;
     width: 90%;
+    &.alone{
+      width: 100%;
+      margin-left: 4em;
+    }
     & h3{
-      color: ${colors.primary};
-      font-size: 1.2rem;
+      color: ${colors.blue};
+      font-size: 1.6rem !important;
+    }
+    & h3.big{
+      font-size: 1.6rem;
     }
     p{
       font-size: 1rem;
+    }
+    p.align-self{
+      align-self: center;
     }
     @media ${devices.tablet} {
       width: 100%;
       margin-right: 1rem;
       margin-left: 1rem;
-      text-align: justify;
+      &.alone{
+        margin-left: 1em;
+      }
+      //text-align: justify;
     }
     @media ${devices.mobileM} {
       margin-right: 0.4rem;
       margin-left: 0.4rem;
+      &.alone{
+        margin-left: .4em;
+      }
     }
   `
   

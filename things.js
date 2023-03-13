@@ -6,6 +6,214 @@ transform: translateX(${(props) => eltHeight(shown.prev)});
 
 
 
+<IconTag 
+                  icon={ faSortDesc} shown={mobileDrop[page.name]}
+></IconTag>
+
+
+<IconTag 
+                  icon={ faSortDesc} shown={(drop.bool && drop.actual===index)}
+></IconTag>
+
+
+const appearInMobile = keyframes`
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+`
+
+const disappearInMobile = keyframes`
+  from {
+    //display: flex;
+    position: relative;
+    transform: scaleY(1);
+    //height: 100%;
+  }
+  to {
+    //display: none;
+    position: absolute;
+    //height: 0;
+    transform: scaleY(0);
+  }
+`
+const noAnimation = keyframes`
+  from{}to{}
+`
+const clicked = keyframes`
+  0% {
+    transfrom: scale(1);
+  }
+  50% {
+    transform: scale(0,7);
+  }
+  100% {
+    transform: scale(1);
+  }
+`
+const child = [
+  <li> One </li>,
+  <li> Two </li>,
+  <li> Three </li>
+]
+
+
+@media ${devices.tablet}{
+      transform-origin: top left;
+      overflow: hidden;
+      &:after{
+        content: '';
+        height: 50px;
+        transition: height 0.5s linear, max-height 0s .5s linear;
+        max-height: 0px;
+      }
+      & > div {
+        transition: margin-bottom 0.5s cubic-bezier(0, 0, 0, 1);
+        margin-bottom: 0;
+        max-height: 1000000px;
+      }
+      ${({first, shown}) => !first ?  
+        shown[0] ? 
+      css`
+      &:after{
+        height: 0;
+        transition: height 0.5s linear;
+        max-height: 50px;
+      }
+      & > div {
+        margin-bottom: -2000px;
+        transition: margin-bottom 0.5s cubic-bezier(1, 0, 1, 1),
+                    visibility 0s 0.5s, max-height 0s 0.5s;
+        visibility: hidden;
+        max-height: 0;
+      }
+      
+      /*transition: max-height 2300ms linear;
+      max-height: 300px;
+      
+      & > div {
+        transform-origin: top left;
+        transform: scaleY(1);
+        animation: ${appearInMobile} 200ms linear;
+      }*/
+      ` : !shown[1] ?
+      css`
+      //display: flex;
+      //height: 0;
+      /*transition: max-height 2000ms linear;
+      max-height: 0;
+      visibility: hidden;
+      overflow: hidden;
+      & > div{
+        transform-origin: top left;
+        transform: scaleY(0);
+        animation: ${disappearInMobile} 2000ms linear;
+      }*/
+      ` : 
+      css`
+      //display: flex;
+      /*& > div{
+        visibility: hidden;
+        margin-bottom: -2000px;
+        max-height: 0;
+      }
+      //transition: max-height 200ms linear;
+      visibility: hidden;
+      max-height: 0px;
+      overflow: hidden;*/
+      `
+      :
+      css`
+      //display: none;
+      /*& > div{
+        visibility: hidden;
+        margin-bottom: -2000px;
+        max-height: 0;
+      }
+      //transition: max-height 200ms linear;
+      max-height: 0px;
+      visibility: hidden;
+      overflow: hidden;*/
+      
+      `
+      }       
+    }
+
+
+@media ${devices.tablet}{
+      transform-origin: top left;
+      ${({first, shown}) => !first ?  
+        shown[0] ? 
+      css`
+      display: flex;
+      //position: relative;
+      //max-height: 500px;
+      //transition: max-height 250ms ease-out;
+      & > div {
+        transition: margin-bottom 3s cubic-bezier(0, 0, 0, 1);
+        margin-bottom: 0;
+        max-height: 1000000px;
+      }
+      //height: 100%;
+      //transform: scaleY(1);
+      //animation: ${appearInMobile} 200ms linear;` : !shown[1] ?
+      css`
+      display: flex;
+      height: 0;
+      transition: height 3s linear;
+      max-height: 50px;
+      & > div{
+        transition: margin-bottom 3s cubic-bezier(1, 0, 1, 1),
+              visibility 0s 3s, max-height 0s 3s;
+        visibility: hidden;
+        margin-bottom: -2000px;
+        max-height: 0;
+      }
+      //max-height: 0;
+      //transition: max-height 250ms ease-out;
+      //position: absolute;
+      //transform: scaleY(0);
+      //animation: ${disappearInMobile} 200ms linear;
+      ` : 
+      css`
+      display: flex;
+      //max-height: 0;
+      //transition: max-height 250ms ease-out;
+      //height: 0;
+      //position: absolute;
+      //transform: scaleY(0);
+      & > div{
+        transition: margin-bottom 3s cubic-bezier(1, 0, 1, 1),
+              visibility 0s 3s, max-height 0s 0.3s;
+        visibility: hidden;
+        margin-bottom: -2000px;
+        max-height: 0;
+      }
+      `
+      :
+      css`
+      //display: none;
+      & > div{
+        visibility: hidden;
+        margin-bottom: -2000px;
+        max-height: 0;
+      }
+      
+      `
+      }       
+    }
+
+
+      /*display: 
+      ${ ({ended, first, shown}) => 
+      !first ? 
+      shown[0] ? 'flex'
+      : !ended ? 'none' : 'flex' 
+      : 'none' };*/
+
+
       {
         name: 'body',
         title: "Maladies parasitaires et examens ",

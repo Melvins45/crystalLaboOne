@@ -72,7 +72,7 @@ const content = {
         sub: 0,
         content: (
           <p>
-            Selon la maladie qu'on veut diagnostiquer, on peut procéder à plusieurs examens :
+            Selon la maladie qu'on veut diagnostiquer, on peut procéder à plusieurs examens, tous disponibles chez Crystal Labo :
             <ul>
               <li> Le FCV( Frottis cervico-vaginal):
               <p> Il permet de diagnostiquer le cancer du col de l'utérus</p>

@@ -75,6 +75,37 @@ export const header_pages = [
     slug: '/medical_imaging'
   },
   {
+    name: 'services',
+    title: 'Nos services',
+    sub: 0,
+    separate: false,
+    slug: '/'
+  },
+  {
+    name: 'rdv_online',
+    title: 'Votre prise de RDV en ligne',
+    sub: 1,
+    separate: false,
+    parent: 'services',
+    slug: rdv
+  },
+  {
+    name: 'results',
+    title: "Vos résultats d'examen en ligne",
+    sub: 1,
+    separate: false,
+    parent: 'services',
+    slug: results
+  },
+  {
+    name: 'my_labo',
+    title: "Mon laboratoire 24h24 - 7j7",
+    sub: 1,
+    separate: false,
+    parent: 'services',
+    slug: '/my_labo'
+  },
+  {
     name: 'know_us',
     title: 'Nous connaître',
     sub: 0,
@@ -112,37 +143,6 @@ export const header_pages = [
     separate: true,
     parent: 'know_us',
     slug: '/join_us'
-  },
-  {
-    name: 'services',
-    title: 'Nos services',
-    sub: 0,
-    separate: false,
-    slug: '/'
-  },
-  {
-    name: 'rdv_online',
-    title: 'Votre prise de RDV en ligne',
-    sub: 1,
-    separate: false,
-    parent: 'services',
-    slug: rdv
-  },
-  {
-    name: 'results',
-    title: "Vos résultats d'examen en ligne",
-    sub: 1,
-    separate: false,
-    parent: 'services',
-    slug: results
-  },
-  {
-    name: 'my_labo',
-    title: "Mon laboratoire 24h24 - 7j7",
-    sub: 1,
-    separate: false,
-    parent: 'services',
-    slug: '/my_labo'
   },
   {
     name: 'take_rdv',

@@ -5,7 +5,7 @@ const content = {
     articleBreakPoints : [
       {
         name: "intro",
-        title: "Docteur, c'est quoi la parisotologie ? ",
+        title: "Parisotologie",
         title_id: "Définition",
         sub: 0,
         content: (
@@ -23,7 +23,7 @@ const content = {
           <p>
             Il s'agit du :
             <ul>
-              <li> L'onchocercose 
+              <li> L'onchocercose:
                 <DivInLi>
                 <ImgInLi src='/onchocercose.jpeg' alt='onchocercose' />
                 <p>
@@ -38,7 +38,7 @@ const content = {
                 </p>
                 </DivInLi>
               </li>
-              <li> La schistosomiase 
+              <li> La schistosomiase:
                 <DivInLi>
                   <p>
                     Encore appelée bilharziose, ses symptômes comprennent:
@@ -53,7 +53,7 @@ const content = {
                   </p>
                 </DivInLi>
               </li>
-              <li> L'amibiase intestinale
+              <li> L'amibiase intestinale:
                 <DivInLi>
                   <p>
                     Les personnes atteintes peuvent présenter des symptômes tel que:
@@ -74,14 +74,14 @@ const content = {
       },
       {
         name: 'body_2',
-        title: 'Les examens à suivre',
+        title: 'Les examens en parisotologie',
         title_id: "parisotology-body_2",
         sub: 0,
         content: (
           <p>
             Nous vous proposons des examens vous permettant d'identifier ces différentes maladies. Nous pouvons ainsi citer: 
             <ul>
-              <li>La goutte épaisse
+              <li>La goutte épaisse:
               <DivInLi>
                 <p>
                   C'est un test utilisé pour diagnostiquer le paludisme.

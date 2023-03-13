@@ -43,7 +43,7 @@ const Nav = styled.div`
     display: flex;
     flex-wrap: no-wrap;
     align-items: flex-end;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.7);
     backdrop-filter: blur(3px);
     width: 100%;//1200px;
     gap: 4em;
@@ -69,7 +69,7 @@ const NavUl = styled.ul`
     flex-direction: row;
     flex-wrap: no-wrap;
     padding: 0;
-    gap: 30px;
+    gap: 1.3rem;
     @media ${devices.tablet} {
       flex-direction: column;
       padding-right: 1rem;
@@ -90,9 +90,9 @@ const NavLi = styled.li`
       color: ${colors.primary};
     }
     & svg{
-      padding-left: .2rem;
-      padding-top: 1rem;
-      padding-bottom: .2rem;
+      padding: .2rem;
+      padding-top: 0rem;
+      //padding-bottom: .2rem;
     }
     @media ${devices.tablet} {
       width: 100%;
@@ -152,6 +152,7 @@ const BurgerMenu = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    //gap: 1rem;
     width: 50%;
     height: 100vh;
     //height: auto;
@@ -177,6 +178,21 @@ const BurgerMenu = styled.div`
       animation: ${ ({lenght}) => burgerDisappear(lenght) } 300ms linear;` :
       css`display: none;`
     } 
+`
+
+const IconTag = styled(FontAwesomeIcon)`
+    //transition: transform .5s linear;
+    //transform: rotate(0deg);
+    ${({shown}) => 
+      shown ? css`
+        transform: rotate(-180deg);
+        transition: transform .5s linear;
+      ` :
+      css`
+        transition: transform .5s linear;
+        transform: rotate(0deg);
+      `
+    }
 `
 
 const BurgerHide = styled.div`
@@ -288,13 +304,13 @@ export default function Header() {
                   }     
                 >
                   { pagesWithSubPages.includes(page.name) ? 
-                  (<>{page.title} <FontAwesomeIcon 
-                  icon={ mobileDrop[page.name] ? faSortAsc : faSortDesc} 
-></FontAwesomeIcon></> ) : 
+                  (<>{page.title} <IconTag 
+                  icon={ faSortDesc} shown={mobileDrop[page.name]}
+></IconTag></> ) : 
                   <Link href={page.slug}>{page.title}</Link> }
                 </span>
                 { pagesWithSubPages.includes(page.name) &&
-                (<Dropdown type='mobile' first={isFirstTimeDropped} windowWidth={windowWidth} parent={page.name} shown={mobileDrop} >
+                (<Dropdown type='mobile' windowWidth={windowWidth} parent={page.name} shown={mobileDrop} >
                 {
                   header_pages
                   .filter( subPage => (subPage.sub === 1 && subPage.parent === page.name ) )
@@ -370,9 +386,9 @@ export default function Header() {
                   onMouseOver={(e) => {e.stopPropagation(); changeDrop(index)}}
                 >
                   { pagesWithSubPages.includes(page.name) ? 
-                  (<>{page.title} <FontAwesomeIcon 
-                  icon={ mobileDrop[page.name] ? faSortAsc : faSortDesc} 
-></FontAwesomeIcon></> ) : 
+                  (<>{page.title} <IconTag 
+                  icon={ faSortDesc} shown={(drop.bool && drop.actual===index)}
+></IconTag></> ) : 
                   <Link href={page.slug}>{page.title}</Link> }
                 </span>
                 { pagesWithSubPages.includes(page.name) &&
